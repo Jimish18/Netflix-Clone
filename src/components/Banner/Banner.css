@@ -1,0 +1,57 @@
+.banner
+{
+    position: relative;
+    height: 500px;
+    object-fit: contain;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.bannerContents
+{
+    margin: 0px 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.bannerDescription
+{
+    max-width: 30rem;
+    line-height: 1.3;
+    font-size: 0.8rem;
+}
+
+.bannerFadeBottom
+{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 7.4rem;
+    background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111);
+}
+
+.bannerButtons
+{
+    display: flex;
+    gap: 1rem;
+}
+
+.btn
+{
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    background-color: rgba(51,51,51,0.5);
+    padding: 0.5rem 2rem;
+}
+
+.btn:hover
+{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s;
+}

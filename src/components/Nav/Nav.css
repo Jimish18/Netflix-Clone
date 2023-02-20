@@ -1,0 +1,33 @@
+.nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+
+.nav-black
+{
+    background-color: #111;
+}
+
+.nav>:nth-child(1)
+{
+    object-fit: contain;
+    height: 90px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.nav>:nth-child(2)
+{
+    height: 45px;
+    cursor: pointer;
+}
