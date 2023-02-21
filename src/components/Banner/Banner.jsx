@@ -1,8 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Banner.css'
+import  axios  from '../axios'
+import requests from '../Requests'
 
 const Banner = () => {
 
+    const [movie,setMovie] = useState([]);
+
+    useEffect(()=>
+    {
+        async function fetchData()
+        {
+            const request = await axios.get(requests.fetchNetflixOriginals)
+            setMovie(
+                request.data.results[
+                    Math.floor(Math.random() * request.data.results.length-1)
+                ]
+            )
+
+            return request;
+        }
+        fetchData();
+    },[])
+
+    
+    console.log(movie)
     const truncate = (string, n) =>
     {
         return string?.length > n ? string.substr(0,n-1) + "..." : string;
@@ -11,20 +33,22 @@ const Banner = () => {
     <>
     <header className="banner"
     style={{
-        backgroundImage : `url("https://wallpaper.dog/large/990949.jpg")`,
+        backgroundImage : `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
         backgroundSize : "cover",
-        backgroundPosition : "center center"
+        backgroundPosition : "center top",
+        backgroundRepeat : "no-repeat"
     }}
     >
         <div className="bannerContents">
-            <h1>Movie Name</h1>
+            <h1>
+                {movie?.title || movie?.name || movie?.original_name}
+            </h1>
             <div className="bannerButtons">
                 <button className='btn'>Play</button>
                 <button className='btn'>My List</button>
             </div>
             <div className="bannerDescription">
-                {truncate(`Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis exercitationem illo in, odio magnam eos accusantium fuga ut cupiditate reiciendis praesentium, distinctio voluptatum dolorum impedit, saepe nisi! Beatae, quas doloremque.
-                Quibusdam provident deserunt consequatur numquam dolore, quisquam, laboriosam officiis excepturi ea ab rem.`,200)}
+                {truncate(movie?.overview,200)}
             </div>
         </div>
 
