@@ -48,8 +48,8 @@ function App() {
         (
          
         <Routes>
-          <Route path='/profile' element = {<ProfileScreen/>}/>
           <Route path="/" element = {<HomeScreen/>}/>
+          <Route path='/profile' element = {<ProfileScreen/>}/>
         </Routes>
         
         )

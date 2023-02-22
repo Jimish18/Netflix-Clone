@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import './Nav.css'
 import avatar from '../../assets/hacker.png'
 import netflix from '../../assets/netflix.png'
+import { useNavigate } from 'react-router-dom'
 
 const Nav = () => {
 
     const [show,setShow] = useState(false);
+    const navigate = useNavigate();
 
     const transition = () =>
     {
@@ -29,8 +31,8 @@ const Nav = () => {
   return (
     <>
     <div className={`nav ${show && 'nav-black'}`}>
-        <img src={netflix} alt="Netflix logo" />
-        <img src={avatar} alt="Avatar Logo" />
+        <img onClick={()=> navigate('/')} src={netflix} alt="Netflix logo" />
+        <img onClick={()=> navigate('/profile')} src={avatar} alt="Avatar Logo" />
     </div>
     </>
   )
