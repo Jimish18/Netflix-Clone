@@ -1,0 +1,58 @@
+.signUpScreen
+{
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.signUpScreen>form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: #fff;
+}
+
+.signUpScreen>form>div
+{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.signUpScreen>form>div>input
+{
+    background-color: #333333;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 0.7rem 1rem;
+    min-width: 16rem;
+}
+
+.signUpScreen>form>button
+{
+    background-color: #e63f22;
+    border: none;
+    border-radius: 5px;
+    padding: 0.7rem 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.signUpScreen>form>:nth-child(4)
+{
+    color: #727272;
+}
+
+.signUpScreen>form>:nth-child(4)>span
+{
+    color: #fff;
+}
+
+.signUpScreen>form>:nth-child(4)>span:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
