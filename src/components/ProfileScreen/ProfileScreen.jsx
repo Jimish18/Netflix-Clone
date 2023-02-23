@@ -3,10 +3,14 @@ import './ProfileScreen.css'
 import profileImage from '../../assets/hacker.png'
 import netflixLogo from '../../assets/netflix-logo.png'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import {selectUser} from '../../features/userSlice'
+import {auth} from '../../firebase'
 
 const ProfileScreen = () => {
 
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
 
   return (
     <div className="profileScreen">
@@ -23,7 +27,7 @@ const ProfileScreen = () => {
           <img src={profileImage} alt="Profile logo" />
           <div className="detailsContainer">
             <div>
-              <p>jimish957@gmail.com</p>
+              <p>{user.email}</p>
               <h3>Plans (Current Plan : premium)</h3>
               <hr />
               <span>Renewal date: 04/03/2024</span>
@@ -51,7 +55,7 @@ const ProfileScreen = () => {
                 <button style={{color : `white`,backgroundColor : `gray` , fontWeight : `bold` , border : `none`}}>Current Package</button>
               </div>
             </div>
-            <button className='profileBtn'>Sign Out</button>
+            <button className='profileBtn' onClick={()=>{auth.signOut()}}>Sign Out</button>
           </div>
         </div>
       </div>

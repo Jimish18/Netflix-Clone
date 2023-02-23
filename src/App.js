@@ -29,12 +29,12 @@ function App() {
       else
       {
         // logged out
-        dispatch(logout)
+        dispatch(logout())
       }
     })
 
     return unSubscribe;
-  },[])
+  },[dispatch])
 
   return (
     <div className="App">       
